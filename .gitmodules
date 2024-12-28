@@ -1,0 +1,6 @@
+[submodule "my-express-cadt"]
+	path = my-express-cadt
+	url = https://github.com/rothasok/my-express-cadt.git
+[submodule "vue-admin-core-main"]
+	path = vue-admin-core-main
+	url = https://github.com/rothasok/vue-admin-core-main.git
