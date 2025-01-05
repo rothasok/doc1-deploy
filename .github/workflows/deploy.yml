@@ -33,7 +33,7 @@ jobs:
             npm install
 
             echo "Reloading server with PM2..."
-            pm2 reload devops-server
+            pm2 reload doc1-deploy
 
             echo "Checking PM2 process status..."
             pm2 status
