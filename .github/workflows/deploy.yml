@@ -17,7 +17,7 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          timeout: 60s 
+          timeout: 120s 
           script: |
             set -e  # Exit on error
             echo "Navigating to project directory..."
