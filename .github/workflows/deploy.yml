@@ -21,7 +21,7 @@ jobs:
           script: |
             set -e  # Exit on error
             echo "Navigating to project directory..."
-            cd devops-cadt-2
+            cd doc1-deploy
 
             echo "Pulling latest changes from main branch..."
             git pull origin main
