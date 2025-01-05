@@ -1,0 +1,40 @@
+name: Automate Re-deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH remote to Contabo VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: 89.117.146.214
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 1308
+          script: |
+            set -e  # Exit on error
+            echo "Navigating to project directory..."
+            cd devops-cadt-2
+
+            echo "Pulling latest changes from main branch..."
+            git pull origin main
+
+            echo "Setting up Node.js environment..."
+            . ~/.nvm/nvm.sh
+
+            echo "Installing dependencies..."
+            npm install
+
+            echo "Reloading server with PM2..."
+            pm2 reload devops-server
+
+            echo "Checking PM2 process status..."
+            pm2 status
+
+            echo "Deployment completed successfully!"

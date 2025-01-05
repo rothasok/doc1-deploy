@@ -45,10 +45,14 @@ services:
       context: .
       dockerfile: Dockerfile-mongo
     container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=PwdKeyforMongo
+      - MONGO_INITDB_DATABASE=mydb
     ports:
       - "27017:27017"
     volumes:
-      - mongodbdata:/data/db
+      - doc1-deploy_mongodbdata:/data/db
     networks:
       - production-networks
   redis:
@@ -69,7 +73,8 @@ services:
     depends_on:
       - redis
 volumes:
-  mongodbdata:
+ doc1-deploy_mongodbdata:
+  external: true
 networks:
   production-networks:
     name: Nginx

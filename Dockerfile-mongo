@@ -1,4 +1,17 @@
 FROM mongo:7.0.12
 ENV TZ="Asia/Bangkok"
-CMD [ "mongod" ]
 
+# Use the latest MongoDB base image
+
+# Set up environment variables (optional)
+ENV MONGO_INITDB_ROOT_USERNAME=admin
+ENV MONGO_INITDB_ROOT_PASSWORD=PwdKeyforMongo
+
+# Copy initialization scripts (if needed)
+# COPY ./init-scripts /docker-entrypoint-initdb.d/
+
+# Expose MongoDB default port
+EXPOSE 27017
+
+# Default command
+CMD ["mongod"]

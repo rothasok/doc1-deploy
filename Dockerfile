@@ -12,7 +12,8 @@ RUN npm run build
 
 EXPOSE 4000
 
-CMD ["serve","-l","4000", "dist"]
+CMD ["npx", "serve", "-s", "dist", "-l", "4000"]
+
 
 # Start the application
 # CMD ["npm", "run", "dev"]
