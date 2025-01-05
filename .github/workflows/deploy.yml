@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: SSH remote to Contabo VPS
+      - name: SSH remote to VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: 89.117.146.214
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 1308
+          port: 22
           script: |
             set -e  # Exit on error
             echo "Navigating to project directory..."
