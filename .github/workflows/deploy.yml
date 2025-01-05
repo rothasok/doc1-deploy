@@ -36,5 +36,4 @@ jobs:
 
             echo "Checking PM2 process status..."
             pm2 status
-
             echo "Deployment completed successfully!"
